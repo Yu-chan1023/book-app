@@ -11,9 +11,9 @@
         <h3>❤️<%= @book.likes.count %></h3>
       </div>
       <% if current_user.already_liked?(@book) %>
-        <%= button_to '🖤やめる', book_like_path(@book), method: :delete, remote: true %>
+        <%= button_to '🖤やめる', book_like_path(@book), method: :delete %>
       <% else %>
-        <%= button_to '❤️いいね', book_likes_path(@book), remote: true %>
+        <%= button_to '❤️いいね', book_likes_path(@book)%>
       <% end %>
       <div class="icon">
       <% if user_signed_in? && current_user.id == @book.user_id %>
