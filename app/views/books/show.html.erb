@@ -1,0 +1,83 @@
+<div class = "books">
+  <div class = "books__a">
+    <div class="content__header">
+      <span>
+        <img src="<%= @book.user.image %>" class = "content__img">
+        <a href="/users/<%= @book.user.id %>">
+          <%= @book.user.name %>
+        </a>  
+      </span>
+      <div class = "heart">
+        <h3>❤️<%= @book.likes.count %></h3>
+      </div>
+      <% if current_user.already_liked?(@book) %>
+        <%= button_to '🖤やめる', book_like_path(@book), method: :delete, remote: true %>
+      <% else %>
+        <%= button_to '❤️いいね', book_likes_path(@book), remote: true %>
+      <% end %>
+      <div class="icon">
+      <% if user_signed_in? && current_user.id == @book.user_id %>
+        <a class="icon__item" href="<%= edit_book_path(@book) %>">
+          <i class="fas fa-edit fa-1x"></i>
+        </a>
+        <%= link_to book_path(@book), :method => :delete , data: { confirm: 'Sure?' } do %>
+          <i class="fas fa-trash-alt fa-1x"></i>
+        <% end %>
+      <% end %>
+      </div>
+    </div>   
+    <div class = "content__main">
+      <div class = "content__main__book">
+        <div class = content__main__book--image>
+          <img class = "book__image" src="<%= @book.image %>">
+        </div>
+      </div>
+      <span class = "content__main__message">
+        <div class = "content__main__message__title">
+          <h2 id = "show__title" ><%= @book.title %></h2>
+        </div>
+        <div class = "content__main__message__content">
+          <h3>感想</h3>
+          <p class = "show__p"><%= @book.content %></p>
+        </div>
+      </span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <% if current_user %>
+    <%= form_for [@book, @book.comments.build], id: "new_comment" do |f| %> 
+      <%= f.text_area :text, class: "comment__form--input textbox", rows: "2" %>
+      <%= f.submit "送信", class: "comment__form--btn", id: "form__submit" %>
+    <% end %>
+  <% else %>
+    <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+  <% end %>
+  <div class="comments comments__list">
+    <h4>コメント一覧</h4>
+    <% if @comments %>
+      <% @comments.each do |comment| %>
+        <div class="comments__a">
+          <div class="comments__img">
+            <img class = "img" src="<%= comment.user.image %>">
+          </div>
+          <div class="comments__content">
+            <strong><%= link_to comment.user.name, "/users/#{comment.user_id}" %></strong>
+            <h3><%= comment.text %></h3>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <div class="comments">
+    <h4>いいねしているユーザー</h4>
+      <% @book.likes.each do |like| %>    
+        <img class = "img inline__img" src="<%= like.user.image %>">
+      <% end %>
+  </div>
+</div>
+
+
+

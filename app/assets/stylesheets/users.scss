@@ -1,0 +1,88 @@
+
+.header__img {
+  height: 40px;
+  width: 40px;
+  object-fit: cover;
+  border-radius: 40%;
+  box-shadow: 0 2px 6px #c1ced7;
+}
+
+.content__img {
+  height: 30px;
+  width: 30px;
+  object-fit: cover;
+  border-radius: 40%;
+  box-shadow: 0 2px 6px #c1ced7;
+}
+
+.inline__img {
+  
+}
+
+.img {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border-radius: 40%;
+  box-shadow: 0 2px 6px #c1ced7;
+}
+
+.show__user {
+  display: flex;
+
+  height: 80px;
+  width: 500px;
+  margin: auto;
+  margin-top: 20px;
+  line-height: 80px;
+  padding: 20px 70px;
+  position: relative;
+  p {
+    font-size: 26px;
+    margin-left: 30px;
+    padding-bottom: 20px;
+    position: absolute;
+    left: 100px;
+    top: 0px;
+  }
+}
+
+.user__box {
+  height: auto;
+  width: 850px;
+  margin: 50px auto;
+  padding-bottom: 50px;
+  h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  .field {
+    width: 100%;
+    margin-bottom: 20px;
+    .name__input {
+      width: 100%;
+      height: 30px;
+      border-radius: 5px;
+    }
+    .email__input {
+      width: 100%;
+      height: 30px;
+      border-radius: 5px;
+    }
+    .password__input {
+      width: 100%;
+      height: 30px;
+      border-radius: 5px;
+    }
+  }
+  .actions {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 20px;
+    .log__submit {
+      width: 50%;
+      background-color: #00BFFF;
+      border-radius: 5px;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+<div class="new">
+  <%= form_for @book do |f| %>
+    <div class="new__page">
+      <div class="book__left">
+        <%= f.text_field :image, class: "book__left--image", placeholder: "image url" %>
+      </div>
+      <div class="book__right">
+        <%= f.text_field :title, class: "book__right--title", placeholder: "input itle", maxlength: "12" %>
+        <%= f.text_area :content, class: "book__right--content", placeholder: "input content", rows: "10" %>
+        <%= f.submit "読了", class: "book__right--btn" %>
+      </div>
+    </div>
+  <% end %>
+</div>  

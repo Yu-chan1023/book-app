@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BookApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Ravi+Prakash" rel="stylesheet">
+  </head>
+
+  <body>
+
+
+    <div class="header">
+      <% if user_signed_in? %>       
+        <span>
+          <img src="<%= current_user.image %>" class = "header__img">
+          <h2><%= link_to current_user.name, "/users/#{current_user.id}" %></h2>
+        </span>
+        <h1><%= link_to "BOOKLovers", root_path %></h1>
+        <ul class="user__info">
+          <li>
+            <%= link_to "users", users_path %>
+            <%= link_to "new_page", new_book_path %>
+            <%= link_to "log_out", destroy_user_session_path, method: :delete, data: { confirm: 'ログアウトしますか？' } %>
+          </li>
+        </ul>
+      <% else %>
+        <h1 class = "header__logo"><%= link_to "BOOKLovers", root_path %></h1>
+        <ul class="user__info">
+            <li>
+              <%= link_to "users", users_path %>
+              <%= link_to "sgin_up", new_user_registration_path %>
+              <%= link_to "log_in", new_user_session_path %>
+            </li>
+          </ul>
+      <% end %>
+     </div>
+
+
+
+    <%= yield %>
+  </body>
+</html>

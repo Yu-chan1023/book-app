@@ -1,0 +1,38 @@
+<div class="show__user">
+  <img src="<%= @image %>" class = "header__img">
+  <p><%= @name %>さんの投稿（<%= @books.count %>件）</p>
+</div>
+
+<div class = "books">
+  <% @books.each do |book| %>
+    <div class = "books__a">
+      <div class="content__header">
+        <span>
+          <img src="<%= book.user.image %>" class = "content__img">
+          <a href="/users/<%= book.user.id %>">
+            <%= book.user.name %>
+          </a>
+        </span>
+        <div class = "heart">
+          <h3>❤️<%= book.likes_users.count %></h3>
+        </div>
+      </div>   
+      <div class = "content__main">
+        <div class = "content__main__book">
+          <div class = content__main__book--image>
+            <img class = "book__image" src="<%= book.image %>">
+          </div>
+        </div>
+        <span class = "content__main__message">
+          <div class = "content__main__message__title">
+            <%= link_to book.title, book_path(book) %>
+          </div>
+          <div class = "content__main__message__content">
+            <h3>感想</h3>
+            <p><%= simple_format(book.content) %></p>
+          </div>
+        </span>
+      </div>
+    </div>
+  <% end %> 
+</div>

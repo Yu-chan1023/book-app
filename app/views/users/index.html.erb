@@ -1,0 +1,13 @@
+<div class="user__box user__index__form">
+  <% @users.each do |user| %>
+    <div class="a__user">
+      <div class="a__user__box">
+        <p><img src="<%= user.image %>" class = "img"></p>
+        <p class="a__user__box--name"><%= link_to user.name, user_path(user.id) %></p>
+      </div>
+      <% if user_signed_in? && current_user.id == user.id %>
+        <p class="a__user__edit"><%= link_to "プロフィール変更", edit_user_registration_path(@user) %><p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
