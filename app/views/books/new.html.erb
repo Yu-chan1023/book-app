@@ -1,14 +1,11 @@
 <div class="new">
+  <h1>new page</h1>
   <%= form_for @book do |f| %>
     <div class="new__page">
-      <div class="book__left">
-        <%= f.text_field :image, class: "book__left--image", placeholder: "image url" %>
-      </div>
-      <div class="book__right">
-        <%= f.text_field :title, class: "book__right--title", placeholder: "input itle", maxlength: "12" %>
-        <%= f.text_area :content, class: "book__right--content", placeholder: "input content", rows: "10" %>
-        <%= f.submit "読了", class: "book__right--btn" %>
-      </div>
+      <%= f.text_field :image, class: "new__page__form new__page--image", placeholder: "image url" %>
+      <%= f.text_field :title, class: "new__page__form new__page--title", placeholder: "input title", maxlength: "12" %>
+      <%= f.text_area :content, class: "new__page__form new__page--content", placeholder: "input content", rows: "10" %>
+      <%= f.submit "読了", class: "new__page--btn" %>
     </div>
   <% end %>
 </div>    
