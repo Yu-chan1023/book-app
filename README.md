@@ -1,24 +1,20 @@
-# README
+# 概要
+読書を愛する人達によるオススメの本を紹介し合えるSNS。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 特徴
+・読書好きな人達だけが集うアプリケーションなので、自分のオススメの本を堂々と紹介できる<br>
+・登録しているユーザー同士で本の感想を共感し合える<br>
+・いいね機能、コメント機能で他者の紹介本を褒められる<br>
+・本の投稿をしなくても、世の中の人のオススメ本を知ることができる（本を探している人にオススメ）<br>
 
-Things you may want to cover:
+# 詳細説明
+### ER図
+(https://gyazo.com/3c6a2b5e64687aa93381c1b7ed818d08)
 
-* Ruby version
+# 搭載機能
+・ユーザー登録機能<br>
+・本の紹介投稿機能<br>
+・いいね機能<br>
+・コメント機能<br>
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
